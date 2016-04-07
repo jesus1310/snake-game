@@ -32,11 +32,13 @@ public class SnakeGame
      * Método para dar animacion a la serpiente
      */
     public void animateSnake(){
-        while (serpiente.mover()){
-            lienzo.wait(100);
-            lienzo.erase();
+        serpiente.borrar(lienzo);
+        while (serpiente.mover()){     
             serpiente.dibujar(lienzo);
+            lienzo.wait(100);
+            serpiente.borrar(lienzo);
         }
+        serpiente.dibujar(lienzo);
         lienzo.drawString("¡¡GAME OVER!!", 200, 200);
     }
 }
